@@ -11,21 +11,15 @@ int check_cycle(listint_t *list)
 {
 	listint_t *curnode;
 	listint_t *current;
-	int match;
 
 	curnode = list;
 	while (curnode)
 	{
-		match = 0;
-		current = list;
+		current = curnode->next;
 		while (current)
 		{
 			if (curnode == current)
-			{
-				match++;
-				if (match > 1)
-					return (1);
-			}
+				return (1);
 			current = current->next;
 		}
 		curnode = curnode->next;
