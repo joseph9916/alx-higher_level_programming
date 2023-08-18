@@ -4,6 +4,8 @@ def roman_to_int(roman_string):
         "C": 100, "D": 500, "M": 1000})
     result = 0
     i = 0
+    if type(roman_string) != str or roman_strin == None:
+        return 0
     while i < (len(roman_string)):
         if (i + 1 < len(roman_string) and
                 roman_dict[roman_string[i]] < roman_dict[roman_string[i + 1]]):
