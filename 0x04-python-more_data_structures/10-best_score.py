@@ -2,6 +2,8 @@
 def best_score(a_dictionary):
     if a_dictionary is None:
         return None
+    if len(a_dictionary) == 0:
+        return None:
     keys = list(a_dictionary.keys())
     largest_key = keys[0]
     for key in keys:
