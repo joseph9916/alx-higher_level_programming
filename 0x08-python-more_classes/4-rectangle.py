@@ -51,7 +51,7 @@ class Rectangle:
         if value < 0:
             raise ValueError("width must be >= 0")
         self.__width = value
-        
+
     def area(self):
         """calculates area of rectangle"""
         return self.__width * self.__height
@@ -61,7 +61,7 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
-    
+
     def __str__(self):
         """prints an unofficial representation of rectangle"""
         str = ""

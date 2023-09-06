@@ -61,3 +61,23 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
+
+    def __str__(self):
+        """prints an unofficial representation of rectangle"""
+        str = ""
+        if self.__width == 0 or self.__height == 0:
+            return str
+        for i in range(self.__height - 1):
+            str += "#" * self.__width
+            str += "\n"
+        str += "#" * self.__width
+        return str
+
+    def __repr__(self):
+        """prints an official representation of rectangle"""
+        str = "Rectangle({:d}, {:d})".format(self.__width, self.__height)
+        return str
+
+    def __del__(self):
+        print("Bye rectangle...")
+        del (self)

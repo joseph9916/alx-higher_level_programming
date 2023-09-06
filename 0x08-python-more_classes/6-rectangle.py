@@ -7,6 +7,8 @@ Write a class Rectangle that defines a rectangle
 class Rectangle:
     """A simple Rectangle"""
 
+    number_of_instances = 0
+
     def __init__(self, width=0, height=0):
         """
         Instantiation with optional width and height
@@ -23,6 +25,7 @@ class Rectangle:
             raise ValueError("height must be >= 0")
         self.__width = width
         self.__height = height
+        type(self).number_of_instances += 1
 
     @property
     def height(self):
@@ -61,3 +64,25 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         return 2 * (self.__width + self.__height)
+
+    def __str__(self):
+        """prints an unofficial representation of rectangle"""
+        str = ""
+        if self.__width == 0 or self.__height == 0:
+            return str
+        for i in range(self.__height - 1):
+            str += "#" * self.__width
+            str += "\n"
+        str += "#" * self.__width
+        return str
+
+    def __repr__(self):
+        """prints an official representation of rectangle"""
+        str = "Rectangle({:d}, {:d})".format(self.__width, self.__height)
+        return str
+
+    def __del__(self):
+        """Delete a rectangle instance"""
+        print("Bye rectangle...")
+        type(self).number_of_instances -= 1
+        del (self)
