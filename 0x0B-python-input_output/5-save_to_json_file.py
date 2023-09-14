@@ -6,6 +6,8 @@ using a JSON representation:
 
 
 import json
+
+
 def save_to_json_file(my_obj, filename):
     """
     Encodes a python object to JSON string and writes into a text file

@@ -5,6 +5,8 @@ Write a function that creates an Object from a JSON file
 
 
 import json
+
+
 def load_from_json_file(filename):
     """
     Decodes a JSON file and creates an object
