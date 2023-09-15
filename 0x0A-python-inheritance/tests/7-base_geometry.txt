@@ -1,5 +1,37 @@
-Using ''add-integer''
+Using ''Integer Validator''
 -------------------
 This is an example text file . First import
-''add_integer'' from the ''0-add_integer'' module:
-        >>> add_integer = __import__('0-add_integer').add_integer
+''integer_validator'' from the ''7-base_geometry'' module:
+        >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+	>>> bg = BaseGeometry()
+	>>> bg.integer_validator("name", "John")
+	Traceback (most recent call last):
+  	  File "<stdin>", line 1, in <module>
+  	  File "<stdin>", line 17, in integer_validator
+	TypeError: name must be an integer
+	>>> bg.integer_validator("age", 0)
+	Traceback (most recent call last):
+  	  File "<stdin>", line 1, in <module>
+	  File "<stdin>", line 19, in integer_validator
+	ValueError: age must be greater than 0
+	>>> bg.integer_validator("distance", -4)
+	Traceback (most recent call last):
+	  File "<stdin>", line 1, in <module>
+	  File "<stdin>", line 19, in integer_validator
+	ValueError: distance must be greater than 0
+	>>> bg.integer_validator("distance", 4)
+	>>> bg.integer_validator("distance", (4, 5))
+	Traceback (most recent call last):
+	  File "<stdin>", line 1, in <module>
+	  File "<stdin>", line 17, in integer_validator
+	TypeError: distance must be an integer
+	>>> bg.integer_validator("distance", 7.1)
+	Traceback (most recent call last):
+	  File "<stdin>", line 1, in <module>
+	  File "<stdin>", line 17, in integer_validator
+	TypeError: distance must be an integer
+	>>> bg.integer_validator("distance", None)
+	Traceback (most recent call last):
+	  File "<stdin>", line 1, in <module>
+	  File "<stdin>", line 17, in integer_validator
+	TypeError: distance must be an integer
