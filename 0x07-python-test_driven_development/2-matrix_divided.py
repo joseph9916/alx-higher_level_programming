@@ -31,6 +31,8 @@ def matrix_divided(matrix, div):
     if div == 0:
         raise ZeroDivisionError("division by zero")
     new_matrix = []
+    if div == float('inf'):
+        new_matrix = [[0] * len(matrix[0])] * len(matrix)
     for row in matrix:
         new_row = []
         for element in row:

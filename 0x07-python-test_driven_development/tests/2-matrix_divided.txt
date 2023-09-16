@@ -20,3 +20,14 @@ This is an example text file . First import
                 File "<stdin>", line 1, in <module>
                 File "<stdin>", line 34, in matrix_divided
 	TypeError: matrix must be a matrix (list of lists) of integers/floats
+        >>> matrix_divided([[1, 2, 3], [4, 5, 6]], "s")
+        Traceback (most recent call last):
+                File "<stdin>", line 1, in <module>
+                File "<stdin>", line 34, in matrix_divided
+	TypeError: div must be a number 
+        >>> matrix_divided([[1, 2, 3], [4, 5, 6]], float('inf'))
+	[[0, 0, 0], [0, 0, 0]]
+	>>> matrix_divided("c")
+	TypeError: matrix_divided() missing 1 required positional argument: 'div'
+	>>> matrix_divided()
+	TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
