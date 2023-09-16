@@ -6,8 +6,10 @@ A module of two integer addition with tests
 
 def add_integer(a, b=98):
     """a function to add two integers"""
-    if not isinstance(a, (float, int)) or not isinstance(b, (float, int)):
-        raise TypeError("a must be an integer or b must be an integer")
+    if not isinstance(a, (float, int)):
+        raise TypeError("a must be an integer")
+    if not isinstance(b, (float, int)):
+        raise TypeError("b must be an integer")
     if a is None:
         raise TypeError("a must be an integer or b must be an integer")
 
