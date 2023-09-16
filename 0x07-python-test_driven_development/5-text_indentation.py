@@ -5,14 +5,13 @@ after each of these characters: ., ? and :
 """
 
 
-import sys
 def text_indentation(text):
     """
     text must be a string, otherwise raise a TypeError
     There should be no space at the beginning or at the
     end of each printed line
     """
-    
+
     if not isinstance(text, str):
         raise TypeError("text must be a string")
     string = ""
@@ -27,8 +26,8 @@ def text_indentation(text):
             string += "{}".format(text[i])
             i += 1
 
-    sys.stdout.write(string)
-    
+    print(string, end="")
+
 
 if __name__ == "__main__":
     import doctest
