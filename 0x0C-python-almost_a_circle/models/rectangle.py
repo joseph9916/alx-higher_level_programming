@@ -116,8 +116,8 @@ class Rectangle(base.Base):
             if len(args) > 4:
                 self.y = args[4]
         else:
-            if id in kwargs:
-                self.id = kwargs.get("id", self.id)
+            if "id" in kwargs:
+                self.id = kwargs.get("id")
             if "x" in kwargs:
                 self.x = kwargs.get("x")
             if "y" in kwargs:

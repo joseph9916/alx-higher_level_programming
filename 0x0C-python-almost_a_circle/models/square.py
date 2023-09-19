@@ -1,3 +1,4 @@
+#!usr/bin/python3
 """
 Write the class Square that inherits from Rectangle:
 In the file models/square.py
@@ -50,7 +51,7 @@ class Square(rectangle.Rectangle):
             if len(args) > 3:
                 self.y = args[3]
         else:
-            if id in kwargs:
+            if "id" in kwargs:
                 self.id = kwargs.get("id", self.id)
             if "x" in kwargs:
                 self.x = kwargs.get("x")
