@@ -5,6 +5,7 @@ The base class for all other classes
 
 
 import json
+import os
 
 
 class Base:
@@ -61,13 +62,16 @@ class Base:
         """class method that returns a list of instances:"""
         filename = cls.__name__ + ".json"
         list_obj = []
-        with open(filename, "r", encoding="utf-8") as file:
-            if file is None:
-                list_dictionaries = []
-            list_dictionaries = cls.from_json_string(file.read())
-            if file is not None:
-                for dictionary in list_dictionaries:
-                    list_obj.append(cls.create(**dictionary))
+        try:
+            with open(filename, "r", encoding="utf-8") as file:
+                if file is None:
+                    list_dictionaries = []
+                list_dictionaries = cls.from_json_string(file.read())
+                if file is not None:
+                    for dictionary in list_dictionaries:
+                        list_obj.append(cls.create(**dictionary))
+        except:
+            pass
         return list_obj
 
 
