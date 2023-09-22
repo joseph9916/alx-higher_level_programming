@@ -14,6 +14,7 @@ b1 = Base()
 b2 = Base(15)
 b3 = Base("2")
 r1 = Rectangle(10, 2)
+r3 = Rectangle(10, 2, 1, 1, 12)
 
 class TestBase(unittest.TestCase):
     """Inherited class to test max integer"""
@@ -21,11 +22,19 @@ class TestBase(unittest.TestCase):
         """Tests if the base class is created and id is assigned accurately"""
         self.assertIsInstance(b1, Base)
         self.assertIsInstance(b2, Base)
-        self.assertIsNotInstance(r1, Base)
-
-    def test_values(self):
-        """Test if the base class values have been updated"""
         self.assertEqual(b1.id, 1)
         self.assertEqual(b2.id, 15)
         self.assertEqual(b3.id, "2")
-        self.assertNotEqual(b1.id, None)
+
+    def test_init_rectangle(self):
+        """Test  the initialising of rectangle"""
+        self.assertIsInstance(r1, Rectangle)
+        self.assertIsInstance(r3, Rectangle)
+        self.assertEqual(r1.id, 2)
+        self.assertEqual(r3.id, 12)
+        self.assertEqual(r1.width, 10)
+        self.assertEqual(r1.height, 2)
+        self.assertEqual(r1.x, 0)
+        self.assertEqual(r1.y, 0)
+        self.assertEqual(r2.x, 1)
+        self.assertEqual(r2.y, 1)
