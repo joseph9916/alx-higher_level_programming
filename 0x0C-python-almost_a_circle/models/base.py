@@ -31,13 +31,13 @@ class Base:
     def save_to_file(cls, list_objs):
         """writes the JSON string representation of list_objs to a file"""
         filename = cls.__name__ + ".json"
-        list_dictionaries = []
-        for obj in list_objs:
-            list_dictionaries.append(obj.to_dictionary())
-        with open(filename, "w", encoding="utf-8") as file:
-            if list_objs is None:
-                file.write(cls.to_json_string([]))
-            else:
+        if list_objs is None:
+            file.write(cls.to_json_string([]))
+        else:
+            list_dictionaries = []
+            for obj in list_objs:
+                list_dictionaries.append(obj.to_dictionary())
+            with open(filename, "w", encoding="utf-8") as file:
                 file.write(cls.to_json_string(list_dictionaries))
 
     @classmethod
@@ -60,15 +60,16 @@ class Base:
     def load_from_file(cls):
         """class method that returns a list of instances:"""
         filename = cls.__name__ + ".json"
+        list_obj = []
         with open(filename, "r", encoding="utf-8") as file:
             if file is None:
                 list_dictionaries = []
-            list_dictionaries = cls.from_json_string(file.read()) 
-            list_obj = []
+            list_dictionaries = cls.from_json_string(file.read())
             if file is not None:
                 for dictionary in list_dictionaries:
                     list_obj.append(cls.create(**dictionary))
         return list_obj
+
 
 class Rectangle(Base):
     """Dummy Rectangle class"""
@@ -80,9 +81,10 @@ class Rectangle(Base):
         self.y = y
         super().__init__(id=id)
 
+
 class Square(Rectangle):
     """Square inherits from Rectangle"""
-    def __init__(self, size, x=0, y=0, id=None):
+    def __init__(self, size=1, x=0, y=0, id=None):
         """Dummy Instance"""
         width = size
         height = size
