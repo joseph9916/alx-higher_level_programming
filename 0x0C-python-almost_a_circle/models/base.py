@@ -62,7 +62,8 @@ class Base:
         """class method that returns a list of instances:"""
         filename = cls.__name__ + ".json"
         list_obj = []
-        try:
+
+        if os.path.isfile(filename):
             with open(filename, "r", encoding="utf-8") as file:
                 if file is None:
                     list_dictionaries = []
@@ -70,8 +71,6 @@ class Base:
                 if file is not None:
                     for dictionary in list_dictionaries:
                         list_obj.append(cls.create(**dictionary))
-        except:
-            pass
         return list_obj
 
 
