@@ -44,7 +44,7 @@ class Base:
     @classmethod
     def create(cls, **dictionary):
         """class method returns an instance with all attributes already set"""
-        ins = cls(1, 1, 0, 0)
+        ins = cls(1, 1)
         ins.update(**dictionary)
         return ins
 
@@ -78,17 +78,11 @@ class Rectangle(Base):
     """Dummy Rectangle class"""
     def __init__(self, width=1, height=1, x=0, y=0, id=None):
         """Dummy instance"""
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
-        super().__init__(id=id)
+        pass
 
 
 class Square(Rectangle):
     """Square inherits from Rectangle"""
     def __init__(self, size=1, x=0, y=0, id=None):
         """Dummy Instance"""
-        width = size
-        height = size
-        super().__init__(x=x, y=y, width=width, height=height, id=id)
+        pass
