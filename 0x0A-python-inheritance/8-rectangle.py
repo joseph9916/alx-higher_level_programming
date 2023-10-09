@@ -4,19 +4,8 @@ Write an empty class BaseGeometry
 """
 
 
-class BaseGeometry:
-    """A base geometry class"""
+BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
-    def area(self):
-        """area method"""
-        raise Exception("area() is not implemented")
-
-    def integer_validator(self, name, value):
-        """that validates value"""
-        if not isinstance(value, int):
-            raise TypeError("{} must be an integer".format(name))
-        if value <= 0:
-            raise ValueError("{} must be greater than 0".format(name))
 
 class Rectangle(BaseGeometry):
     """A Rectangle class inheriting Geometry"""
