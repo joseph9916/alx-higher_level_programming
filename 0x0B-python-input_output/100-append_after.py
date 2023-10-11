@@ -6,6 +6,7 @@ after each line containing a specific string
 
 
 def append_after(filename="", search_string="", new_string=""):
+    """append after´line that search_string is found"""
     string = ""
     with open(filename, 'r', encoding="utf-8") as f:
         for line in f.readlines():

@@ -6,6 +6,7 @@ Returns an empty list if n <= 0
 You can assume n will be always an integer
 """
 
+
 def factorial(n):
     """factorial of number"""
     if n <= 1:
