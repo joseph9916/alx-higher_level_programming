@@ -40,3 +40,7 @@ class TestBase(unittest.TestCase):
         """Test from_json_string"""
         self.assertEqual(Base.from_json_string(json_string), [dictionary])
         self.assertEqual(Base.from_json_string("[]"), [])
+
+
+if __name__ == "__main__":
+    unittest.main()

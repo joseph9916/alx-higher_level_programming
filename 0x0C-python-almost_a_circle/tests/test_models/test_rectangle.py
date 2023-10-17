@@ -124,3 +124,7 @@ class TestRectangle(unittest.TestCase):
         r9 = Rectangle.create(**{'id': 89, 'width': 4, "height": 3, "x": 1, "y": 2})
         r9_string = "[Rectangle] (89) 1/2 - 4/3"
         self.assertEqual(r9.__str__(), r9_string)
+
+
+if __name__ == "__main__":
+    unittest.main()
