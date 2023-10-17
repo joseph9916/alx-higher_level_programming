@@ -12,10 +12,10 @@ from models.base import Base
 r1 = Rectangle(1, 2)
 r2 = Rectangle(1, 2, 3, 4, 5)
 b1 = Base()
-return_string = "[Rectangle] (1) 0/0 - 1/2"
+return_string = "[Rectangle] (4) 0/0 - 1/2"
 display1 = "{}".format("#\n" * 2)
 display2 = "{}{}".format("\n" * 4, "#\n" * 2)
-r1_dictionary = {"id": 1, "width": 1, "height": 2, "x": 0, "y": 0}
+r1_dictionary = {"id": 4, "width": 1, "height": 2, "x": 0, "y": 0}
 
 class TestRectangle(unittest.TestCase):
     """Inherited class to test rectangle objects"""
@@ -27,7 +27,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_values(self):
         """Tests if Rectangle class values have been correctly assigned"""
-        self.assertEqual(r1.id, 1)
+        self.assertEqual(r1.id, 4)
         self.assertEqual(r2.id, 5)
         self.assertEqual(r1.width, 1)
         self.assertEqual(r1.height, 2)
@@ -73,7 +73,7 @@ class TestRectangle(unittest.TestCase):
         """Tests updates of dictionary"""
         r3 = Rectangle(1, 2)
         r3.update()
-        r3_string = "[Rectangle] (14) 0/0 - 1/2"
+        r3_string = "[Rectangle] (17) 0/0 - 1/2"
         self.assertEqual(r3.__str__(), r3_string)
         r3.update(89)
         r3_string = "[Rectangle] (89) 0/0 - 1/2"
