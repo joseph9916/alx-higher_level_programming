@@ -31,7 +31,7 @@ class Square(Rectangle):
     def __str__(self):
         """should return [Square] (<id>) <x>/<y> - <size>"""
         return ("[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y,
-            self.size))
+                self.size))
 
     def update(self, *args, **kwargs):
         """updates Square attributes based on args and kwargs"""
@@ -46,10 +46,10 @@ class Square(Rectangle):
                 self.y = args[3]
         if kwargs is not None:
             self.id = kwargs.get("id", self.id)
-            self.size = kwargs.get("width", self.size)
+            self.size = kwargs.get("size", self.size)
             self.x = kwargs.get("x", self.x)
             self.y = kwargs.get("y", self.y)
 
     def to_dictionary(self):
         """eturns the dictionary representation of a Rectangle:"""
-        return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y} 
+        return {'id': self.id, 'size': self.size, 'x': self.x, 'y': self.y}
