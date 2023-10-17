@@ -7,6 +7,7 @@ Write the first class Base:
 import json
 import os
 import csv
+import turtle
 
 
 class Base:
@@ -120,6 +121,29 @@ class Base:
                 obj = cls.create(**row)
                 list_objs.append(obj)
         return list_objs
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """Draw a rectangle or square with turtle graphics"""
+        shape = turtle.getscreen()
+        t = turtle.Turtle()
+        if list_rectangles is not None:
+            for rec in list_rectangles:
+                t.up()
+                t.goto(rec.x, rec.y)
+                for i in range(2):
+                    t.down()
+                    t.fd(rec.width)
+                    t.rt(90)
+                    t.fd(rec.height)
+                    t.rt(90)
+            for sq in list_squares:
+                t.up()
+                t.goto(sq.x, sq.y)
+                for i in range(4):
+                    t.down()
+                    t.fd(sq.size)
+                    t.rt(90)
 
 
 class Rectangle(Base):
