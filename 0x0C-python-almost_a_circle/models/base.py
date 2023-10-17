@@ -28,7 +28,7 @@ class Base:
         else:
             self.__class__.__nb_objects += 1
             self.id = self.__class__.__nb_objects
-    
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """
@@ -68,7 +68,7 @@ class Base:
         obj = cls(1, 2)
         obj.update(**dictionary)
         return obj
-    
+
     @classmethod
     def load_from_file(cls):
         """
@@ -93,9 +93,9 @@ class Base:
         for obj in list_objs:
             list_dictionaries.append(obj.to_dictionary())
         filename = "{}.csv".format(cls.__name__)
-        if cls == Rectangle.__name__:
+        if cls.__name__ == "Rectangle":
             fields = ["id", "width", "height", "x", "y"]
-        if cls == Square.__name__:
+        if cls.__name__ == "Square":
             fields = ["id", "size", "x", "y"]
 
         with open(filename, 'w', newline="") as csvfile:
@@ -114,7 +114,10 @@ class Base:
         with open(filename, newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                obj = cls.create(row)
+                for key in row.keys():
+                    if row.get(key) is not None:
+                        row[key] = int(row.get(key))
+                obj = cls.create(**row)
                 list_objs.append(obj)
         return list_objs
 
@@ -124,6 +127,7 @@ class Rectangle(Base):
     def __init__(self, width=1, height=1, x=0, y=0, id=None):
         """Dummy instance"""
         pass
+
 
 class Square(Rectangle):
     """Dummy Square class"""
