@@ -1,9 +1,7 @@
-/* 
-	creates a table called first_table in the current database in your MySQL
-	first_table description:
-		id INT
-		name VARCHAR(256)
- */
+-- creates a table called first_table in the current database in your MySQL
+-- first_table description:
+--	id INT
+--	name VARCHAR(256)
 DROP TABLE IF EXISTS second_table;
 CREATE TABLE second_table (
 	id INT,
