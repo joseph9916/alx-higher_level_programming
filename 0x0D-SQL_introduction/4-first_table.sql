@@ -2,7 +2,7 @@
 -- first_table description:
 --	id INT
 --	name VARCHAR(256)
-DROP TABLE IF first_table EXISTS
+DROP TABLE IF EXISTS first_table;
 CREATE TABLE first_table (
 	id INT,
 	name VARCHAR(256)
